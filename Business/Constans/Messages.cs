@@ -8,6 +8,14 @@ namespace Business.Constans
 {
     public static class Messages
     {
+
+        public static string CarAdded = "Car eklendi!";
+        public static string CarDelented = "Car Silindi!";
+        public static string CarUpdate = "Car Güncellendi!";
+        public static string CarList = "Car Listelendi!";
+        public static string CarListError = "Car Listelenemedi!";
+
+
         public static string BrandAdded = "Marka eklendi!";
         public static string BrandDelented = "Marka Silindi!";
         public static string BrandUpdate = "Marka Güncellendi!";

@@ -27,12 +27,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Brand>> getAllBrand()
         {
-            return new SuccessDataResult<List<Brand>>(Messages.BrandList); 
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.BrandList); 
         }
 
         public IDataResult<Brand> GetBrand(int brandId)
         {
-            return new SuccessDataResult<Brand>(Messages.BrandList);
+            return new SuccessDataResult<Brand>(_brandDal.Get(p=>p.Id==brandId),Messages.BrandList);
         }
 
         public IResult Remove(Brand brand)
@@ -46,5 +46,7 @@ namespace Business.Concrete
             _brandDal.Update(brand);
             return new SuccessResult(Messages.BrandUpdate);
         }
+
+        
     }
 }

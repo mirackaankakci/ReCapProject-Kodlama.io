@@ -1,4 +1,4 @@
-﻿using Business.Abstract;
+﻿ using Business.Abstract;
 using Business.Constans;
 using Core.Utilities;
 using DataAccess.Abstract;
@@ -32,10 +32,16 @@ namespace Business.Concrete
             return new SuccessResult("Araba sisteme eklendi");
         }
 
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDelented);
+        }
+
         public IDataResult<List<Car>> getAll()
         {
             
-            if(DateTime.Now.Hour==15)
+            if(DateTime.Now.Hour==17)
             {
                 return new ErrorDataResult<List<Car>>("Hata!, Arabalar Listelenemedi");
             }
@@ -65,6 +71,12 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<CarDetailDto>>(Messages.ColorListError);
             }
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetail());
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdate);
         }
 
         List<CarDetailDto> ICarService.GetDetailCar()
